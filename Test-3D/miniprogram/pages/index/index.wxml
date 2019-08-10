@@ -1,0 +1,25 @@
+<!--miniprogram/pages/index/index.wxml-->
+<view class="section">
+  <!-- <view class="section__title">多列选择器</view> -->
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <view class="picker">
+      当前城市与日期：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+    </view>
+  </picker>
+</view>
+
+<text>空气指数：{{air}}</text>
+<text>空气质量：{{airLevel}}</text>
+<text>Tips：{{airTips}}</text>
+<text>最高气温：{{tem}}</text>
+<text>最低气温：{{tem1}}</text>
+<text>当前气温：{{tem2}}</text>
+<text>天气状况：{{wea}}</text>
+<image src="{{weaImg}}"></image>
+<text>{{weaImg}}</text>
+<text>风向：{{win}}</text>
+<text>风速：{{winSpeed}}</text>
+
+<navigator url="../index1/index" open-type="navigate" class="uploader-text">
+    <text>To index1</text>
+</navigator>
