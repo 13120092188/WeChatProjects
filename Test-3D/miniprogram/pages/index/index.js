@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    apiUrl: "https://www.tianqiapi.com/api/?version=v1",
+    apiUrl: "https://www.tianqiapi.com/api/?version=v1", 
 
     multiArray: [['深圳', '北京', '上海', '广州'], ['今天', '明天', '后天']],
     objectMultiArray: [
