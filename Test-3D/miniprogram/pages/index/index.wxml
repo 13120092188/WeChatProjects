@@ -11,9 +11,9 @@
 <text>空气指数：{{air}}</text>
 <text>空气质量：{{airLevel}}</text>
 <text>Tips：{{airTips}}</text>
-<text>最高气温：{{tem}}</text>
-<text>最低气温：{{tem1}}</text>
-<text>当前气温：{{tem2}}</text>
+<text>当前气温：{{tem}}</text>
+<text>最高气温：{{tem1}}</text>
+<text>最低气温：{{tem2}}</text>
 <text>天气状况：{{wea}}</text>
 <image src="{{weaImg}}"></image>
 <text>{{weaImg}}</text>
