@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="view1">
+    
+    <view class="view2">
+      <view class="location">
+        <image class="icon_location" src="map-marker.png"></image>
+        <text>深圳</text>
+      </view>
+      <view class="weather_info">
+        <view class="temperature">
+          <view class="tem_number">
+            <text style="font-size: 180rpx">29</text>
+          </view>
+          <view class="tem_unit">
+            <text style="font-size: 100rpx">℃</text>
+          </view>
+        </view>
+        <view class="wea_state">
+          <text style="font-size: 60rpx">晴</text>
+          <image class="icon_wea_state" src="sun.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

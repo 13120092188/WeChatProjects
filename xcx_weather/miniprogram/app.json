@@ -10,15 +10,13 @@
     "pages/openapi/openapi",
     "pages/openapi/serverapi/serverapi",
     "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid",
-    "pages/index1/index",
-    "pages/vedioTest/vedioTest"
+    "pages/openapi/cloudid/cloudid"
   ],
   "window": {
     "backgroundColor": "#F4F7F9",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F4F7F9",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "weather",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"

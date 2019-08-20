@@ -1,29 +1,98 @@
-/**app.wxss**/
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-} 
-
-button {
-  background: initial;
-}
-
-button:focus{
-  outline: 0;
-}
-
-button::after{
-  border: none;
-}
-
+/**index.wxss**/
 
 page {
-  background: #f4f7f9;
+  background: #F4F7F9;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+.view1 {
+  margin-top: 100rpx;
+  height: 1200rpx;
+  width: 100%;
+  background-color: wheat;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.view2 {
+  height: 100%;
+  width: 60%;
+  background-color: springgreen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location {
+  height: 70rpx;
+  width: 100%;
+  background-color: sandybrown;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.weather_info {
+  margin-top: 50rpx;
+  height: 200rpx;
+  width: 100%;
+  background-color: #007aff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.temperature {
+  height: 100%;
+  width: 75%;
+  background-color: #888;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tem_number {
+  height: 100%;
+  width: 65%;
+  background-color: rgb(189, 29, 29);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tem_unit {
+  height: 100%;
+  width: 35%;
+  background-color: rgb(29, 104, 189);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+}
+
+.wea_state {
+  height: 100%;
+  width: 25%;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* align-content: space-around; */
+  justify-content: space-around;
+}
+
+.icon_location {
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.icon_wea_state {
+  height: 60rpx;
+  width: 60rpx;
 }
 
 .userinfo, .uploader, .tunnel {

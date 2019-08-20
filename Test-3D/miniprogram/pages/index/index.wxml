@@ -23,3 +23,6 @@
 <navigator url="../index1/index" open-type="navigate" class="uploader-text">
     <text>To index1</text>
 </navigator>
+<navigator url="../vedioTest/vedioTest" open-type="navigate" class="uploader-text">
+    <text>To index1</text>
+</navigator>
