@@ -1,26 +1,110 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="view1">
-    
-    <view class="view2">
-      <view class="location">
-        <image class="icon_location" src="map-marker.png"></image>
-        <text>深圳</text>
-      </view>
-      <view class="weather_info">
-        <view class="temperature">
-          <view class="tem_number">
-            <text style="font-size: 180rpx">29</text>
+<view class="container" style="height: {{winHeight}}rpx;">
+
+  <view class="view0">
+    <view class="view0-1">
+      
+      <view class="view0-1-1">
+        <view class="location" style="margin-top: {{margin_location}}rpx">
+          <image class="icon_location" src="map-marker.png"></image>
+          <text style="margin-left: 10rpx; font-size: 33rpx">深圳</text>
+        </view>
+
+        <view class="weather_info">
+          <view class="temperature">
+            <view class="tem_number">
+              <text style="font-size: 147rpx">{{tem}}</text>
+            </view>
+            <view class="tem_unit">
+              <text style="font-size: 71rpx">℃</text>
+            </view>
           </view>
-          <view class="tem_unit">
-            <text style="font-size: 100rpx">℃</text>
+          <view class="wea_state">
+            <text style="font-size: 40rpx">{{wea}}</text>
+            <image class="icon_wea_state" src="{{weaImg}}"></image>
           </view>
         </view>
-        <view class="wea_state">
-          <text style="font-size: 60rpx">晴</text>
-          <image class="icon_wea_state" src="sun.png"></image>
+
+        <view class="detail">
+          <view class="detail-left">
+            <view class="detail-left-r1">
+              <view class="detail-data-title">
+                <text style="font-size: 22rpx">相比昨日</text>
+              </view>
+              <view class="detail-data">
+                <text style="font-size: 22rpx">{{temDiffer}}℃</text>
+              </view>
+
+              <view>
+                <view class="detail-data-icon" style="background-color: #5edbff" wx:if="{{temDiffer < 0}}">
+                  <text style="font-size: 18rpx; color:white">降</text>
+                </view>
+                <view class="detail-data-icon" style="background-color: #f74f4b" wx:elif="{{temDiffer > 0}}">
+                  <text style="font-size: 18rpx; color:white">升</text>
+                </view>
+                <view class="detail-data-icon" style="background-color: #f3ef7d" wx:else>
+                  <text style="font-size: 18rpx; color:white">-</text>
+                </view>
+              </view>
+              
+            </view>
+            <view class="detail-left-r2">
+              <view class="detail-data-title">
+              <text style="font-size: 22rpx">空气质量</text>
+              </view>
+              <view class="detail-data">
+                <text style="font-size: 22rpx">{{air}}</text>
+              </view>
+              <view class="detail-data-icon" style="background-color: #7ad835">
+                <text style="font-size: 18rpx; color:white">{{airLevel}}</text>
+              </view>
+            </view>
+            <view class="detail-left-r3">
+              <view class="detail-data-title">
+              <text style="font-size: 22rpx">紫外线</text>
+              </view>
+              <view class="detail-data">
+                <text style="font-size: 22rpx">5级</text>
+              </view>
+              <view class="detail-data-icon" style="background-color: #9b25ff">
+                <text style="font-size: 18rpx; color:white">强</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="model" style="margin-top: {{margin_model}}rpx">
+          <image class="image-model" src="model.png"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="view0-2">
+      <view class="toolbar" bindtouchmove="showToolBar">
+        <image class="icon-toolbar" src="toolbar.png"></image>
+      </view>
+      <view class="timebar">
+        <view class="time-icon" style="{{todayColor}}" bindtap="toToday" bindlongtap="showHours">
+          <text style="font-size: 22rpx">{{days[0]}}</text>
+        </view>
+        <view class="time-icon" style="{{tomorrowColor}}" bindtap="toTomorrow" bindlongtap="showHours">
+          <text style="font-size: 22rpx">{{days[1]}}</text>
+        </view>
+        <view class="time-icon" style="{{nextNextColor}}" bindtap="toNextNextDay" bindlongtap="showHours">
+          <text style="font-size: 22rpx">{{days[2]}}</text>
         </view>
       </view>
     </view>
   </view>
+
+  
+  <view class="view1" wx:if="{{hourWeaBox == 1 || toolBarBox == 1}}" bindtap="hideBox">
+    <view class="view1-1" wx:if="{{hourWeaBox == 1}}">
+      <view class="hour-wea-box" bindtap="unHideBox1"></view>
+    </view>
+    <view class="view1-2" wx:if="{{toolBarBox == 1}}">
+      <view class="tool-bar-box" bindtap="unHideBox2"></view>
+    </view>
+  </view>
 </view>
+
+
