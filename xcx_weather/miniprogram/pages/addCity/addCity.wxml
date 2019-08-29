@@ -1,0 +1,14 @@
+<!--miniprogram/pages/addCity/addCity.wxml-->
+<view class="view-search">
+  <view class="view-search1">
+    <image class="icon-search" src="../../images/search.png"></image>
+    <input class="input-search" placeholder="输入城市和地区"></input>
+    <image class="delete-search" src="../../images/x.png"></image>
+  </view>
+</view>
+<view wx:for="{{cityList}}" wx:key="id" wx:for-item="cityItem">
+  <view class="item" bindtap="addCity" data-cityid="{{cityItem.id}}" data-cityzh="{{cityItem.cityZh}}">
+    <text style="font-size: 30rpx">{{cityItem.cityZh}}</text>
+  </view>
+</view>
+

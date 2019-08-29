@@ -12,6 +12,7 @@ Page({
     margin_model: 0,
 
     apiUrl: "https://www.tianqiapi.com/api/?version=v1", 
+    cityName: "-",
     weatherDatas: [],
     temDiffer: "-",
     air: "-",
@@ -21,33 +22,9 @@ Page({
     weaImg: "-",
     days: [],
 
-    multiArray: [['深圳', '北京', '上海', '广州'], ['今天', '明天', '后天']],
+    multiArray: [['深圳'], ['今天', '明天', '后天']],
     objectMultiArray: [
       [
-        {
-          id: 0,
-          name: '深圳',
-          cityId: "101280601",
-          lastTem: 27
-        },
-        {
-          id: 1,
-          name: '北京',
-          cityId: "101010100",
-          lastTem: 27
-        },
-        {
-          id: 2,
-          name: '上海',
-          cityId: "101020100",
-          lastTem: 27
-        },
-        {
-          id: 3,
-          name: '广州',
-          cityId: "101280101",
-          lastTem: 27
-        }
       ], [
         {
           id: 0,
@@ -78,6 +55,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getWinHeight();
+
+    this.getCityList();
+
+  },
+
+  //get windows height
+  getWinHeight: function() {
     var that = this;
     //  高度自适应
     wx.getSystemInfo({
@@ -100,9 +85,37 @@ Page({
         });
       }
     });
+  },
 
-    this.getWeatherInfo();
-    // this.setPageDatas();
+  //get citylist
+  getCityList: function() {
+    var that = this;
+    const db = wx.cloud.database()
+    db.collection('starCitys')
+      .limit(10)
+      .get({
+        success: res => {
+          that.data.objectMultiArray[0] = res.data
+          for (var i = 0; i < res.data.length; i++) {
+            that.data.multiArray[0][i] = res.data[i].cityZh
+          }
+          that.setData({
+            objectMultiArray: that.data.objectMultiArray
+          })
+          console.log(that.data.multiArray)
+          console.log(res.data)
+          that.getWeatherInfo()
+          console.log(that.data.multiArray[0])
+          console.log('[数据库] [查询记录] 成功: ', res)
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '查询记录失败'
+          })
+          console.error('[数据库] [查询记录] 失败：', err)
+        }
+      })
   },
 
   /**
@@ -116,7 +129,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getCityList();
   },
 
   /**
@@ -159,7 +172,8 @@ Page({
     wx.request({
       url: this.data.apiUrl,
       data: {
-        cityid: this.data.objectMultiArray[0][this.data.multiIndex[0]].cityId
+        cityid: this.data.objectMultiArray[0][this.data.multiIndex[0]].cityId,
+        appid: "91628346"
       },
       success: res => {
         console.log(res.data);
@@ -174,21 +188,25 @@ Page({
 
     if (0 == this.data.multiIndex[1]) {
       this.setData({
+        cityName: this.data.multiArray[0][this.data.multiIndex[0]],
         air: this.data.weatherDatas[this.data.multiIndex[1]].air,
         airLevel: this.data.weatherDatas[this.data.multiIndex[1]].air_level.slice(0,1),
         tem: this.data.weatherDatas[this.data.multiIndex[1]].tem.slice(0, -1),
         wea: this.data.weatherDatas[this.data.multiIndex[1]].wea,
-        weaImg: "cloud://xcx-weather1-nin8f.7863-xcx-weather1-nin8f/weaImg/" + this.data.weatherDatas[this.data.multiIndex[1]].wea_img + ".png",
+        weaImg: "../../images/weaIcon/" + this.data.weatherDatas[this.data.multiIndex[1]].wea_img + ".png",
+        // weaImg: "cloud://xcx-weather1-nin8f.7863-xcx-weather1-nin8f/weaImg/" + this.data.weatherDatas[this.data.multiIndex[1]].wea_img + ".png",
         days: [this.data.weatherDatas[0].day.slice(-3, -1), this.data.weatherDatas[1].day.slice(0, 3), this.data.weatherDatas[2].day.slice(0, 3)],
         temDiffer: this.data.temDiffer
       })
     } else {
       this.setData({
+        cityName: this.data.multiArray[0][this.data.multiIndex[0]],
         air: "",
         airLevel: "",
         tem: this.data.weatherDatas[this.data.multiIndex[1]].tem.slice(0, -1),
         wea: this.data.weatherDatas[this.data.multiIndex[1]].wea,
-        weaImg: "cloud://xcx-weather1-nin8f.7863-xcx-weather1-nin8f/weaImg/" + this.data.weatherDatas[this.data.multiIndex[1]].wea_img + ".png",
+        weaImg: "../../images/weaIcon/" + this.data.weatherDatas[this.data.multiIndex[1]].wea_img + ".png",
+        // weaImg: "cloud://xcx-weather1-nin8f.7863-xcx-weather1-nin8f/weaImg/" + this.data.weatherDatas[this.data.multiIndex[1]].wea_img + ".png",
         days: [this.data.weatherDatas[0].day.slice(-3, -1), this.data.weatherDatas[1].day.slice(0, 3), this.data.weatherDatas[2].day.slice(0, 3)],
         temDiffer: this.data.temDiffer
       });
@@ -202,7 +220,7 @@ Page({
       nextNextColor: "background-color: #F4F7F9; color:#b7b9ba",
     });
     this.data.multiIndex[1] = 0;
-    this.data.temDiffer = this.data.weatherDatas[0].tem.slice(0, -1) - this.data.objectMultiArray[0][this.data.multiIndex[0]].lastTem;
+    this.data.temDiffer = this.data.weatherDatas[0].tem.slice(0, -1) - 27;
     this.setPageDatas();
   },
 
@@ -268,5 +286,9 @@ Page({
     });
   },
 
-  
+  changeCity: function(event) {
+    console.log(event)
+    this.data.multiIndex[0] = event.currentTarget.dataset.cityid;
+    this.toToday();
+  }
 })

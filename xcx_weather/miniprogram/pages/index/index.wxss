@@ -234,9 +234,20 @@ page {
   justify-content: center;
 }
 
+.touch-box {
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 7rpx;
+  /* background-color: rgb(139, 139, 79); */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .time-icon {
-  margin-left: 30rpx;
-  margin-right: 30rpx;
   height: 35rpx;
   width: 60rpx;
   border-radius: 7rpx;
@@ -293,17 +304,24 @@ page {
 }
 
 .tool-bar-box {
-  /* margin-right: 10rpx; */
   margin-bottom: 100rpx;
-  height: 40%; 
-  width: 110rpx;
   background-color: #F4F7F9;
-  border: 1px solid #393f43;
+  border: 1px solid #ecedee;
   border-bottom: 0rpx;
   border-radius: 2rpx;
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   align-items: center;
+}
+
+.cityItem {
+  padding: 10rpx;
+  margin-bottom: 10rpx;
+  width: 120rpx;
+  border-bottom: 1px solid #ecedee;
+  /* background-color: rgb(18, 123, 194); */
+  display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 

@@ -1,0 +1,56 @@
+/* miniprogram/pages/addCity/addCity.wxss */
+.view-search {
+  height: 120rpx;
+  width: 100%;
+  /* background-color: antiquewhite; */
+  border-bottom: 1px solid #ecedee;
+  border-top: 1px solid #ecedee;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-search1 {
+  height: 60rpx;
+  width: 90%;
+  background-color: white;
+  border: 1px solid #ecedee;
+  border-radius: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.icon-search {
+  margin-left: 20rpx;
+  height: 27rpx;
+  width: 27rpx;
+}
+
+.input-search {
+  margin-left: 20rpx;
+  height: 22rpx;
+  width: 560rpx;
+  font-size: 22rpx;
+}
+
+
+.delete-search {
+  height: 22rpx;
+  width: 22rpx;
+}
+
+
+.item {
+  width: 100%;
+  height: 80rpx;
+  padding-left: 40rpx;
+  border-bottom: 1px solid #ecedee;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  /* background-color: wheat; */
+}
