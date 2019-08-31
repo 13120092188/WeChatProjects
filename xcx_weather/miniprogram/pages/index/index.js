@@ -92,7 +92,7 @@ Page({
     var that = this;
     const db = wx.cloud.database()
     db.collection('starCitys')
-      .limit(10)
+      .limit(15)
       .get({
         success: res => {
           that.data.objectMultiArray[0] = res.data
@@ -173,7 +173,8 @@ Page({
       url: this.data.apiUrl,
       data: {
         cityid: this.data.objectMultiArray[0][this.data.multiIndex[0]].cityId,
-        appid: "91628346"
+        appid: "91628346",
+        appsecret: "uwW99XuR"
       },
       success: res => {
         console.log(res.data);

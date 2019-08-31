@@ -68,7 +68,7 @@ Page({
     var that = this;
     const db = wx.cloud.database()
     db.collection('starCitys')
-      .limit(10)
+      .limit(15)
       .get({
         success: res => {
           for (var i = 0; i < res.data.length; i++) {
@@ -137,7 +137,7 @@ Page({
 
   addCity: function(event) {
     console.log(event)
-    if(this.data.myCitys.indexOf(event.currentTarget.dataset.cityid) == -1){
+    if(this.data.myCitys.indexOf(event.currentTarget.dataset.cityid) == -1 && this.data.myCitys.length < 15){
       var that = this
       const db = wx.cloud.database()
       db.collection('starCitys').add({
@@ -147,6 +147,7 @@ Page({
           cityZh: event.currentTarget.dataset.cityzh
         },
         success: res => {
+          that.getMyCitys();
           wx.showToast({
             title: '新增记录成功',
           })
@@ -159,6 +160,11 @@ Page({
           })
           console.error('[数据库] [新增记录] 失败：', err)
         }
+      })
+    } else if (this.data.myCitys.length >= 15){
+      wx.showToast({
+        icon: 'none',
+        title: '最多添加15城市'
       })
     }
   }
