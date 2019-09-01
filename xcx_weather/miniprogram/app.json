@@ -11,8 +11,8 @@
     "pages/openapi/serverapi/serverapi",
     "pages/openapi/callback/callback",
     "pages/openapi/cloudid/cloudid",
-    "pages/cityList/cityList",
-    "pages/addCity/addCity"
+    "pages/addCity/addCity",
+    "pages/myCitys/myCitys"
   ],
   "window": {
     "backgroundColor": "#F4F7F9",

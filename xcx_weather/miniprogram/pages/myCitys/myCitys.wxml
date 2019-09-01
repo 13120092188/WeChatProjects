@@ -1,0 +1,21 @@
+<!--miniprogram/pages/myCitys/myCiyts.wxml-->
+<view>
+  <view class="item">
+    <image class="icon-remove" src="../../images/remove.png"></image>
+    <view class="myCityInfo">
+      <text style="font-size: 30rpx; padding-left: 40rpx;">深圳 29℃</text>
+      <text style="font-size: 22rpx; padding-left: 40rpx; color: #c3c6c7">晴 26℃ 至 32℃</text>
+    </view>
+    <view class="twoImgview">
+     <image class="icon-wea" src="../../images/sun.png"></image>
+     <image class="icon-toolbar" src="../../images/toolbar.png"></image>
+    </view>
+  </view>
+</view>
+
+<navigator url="../addCity/addCity" open-type="navigate">
+  <view class="item">
+    <image class="icon-addCity" src="../../images/addCity.png"></image>
+    <text style="font-size: 30rpx; padding-left: 40rpx;">添加城市</text>
+  </view>
+</navigator>

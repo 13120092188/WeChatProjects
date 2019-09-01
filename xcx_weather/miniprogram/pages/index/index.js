@@ -196,7 +196,7 @@ Page({
         wea: this.data.weatherDatas[this.data.multiIndex[1]].wea,
         weaImg: "../../images/weaIcon/" + this.data.weatherDatas[this.data.multiIndex[1]].wea_img + ".png",
         // weaImg: "cloud://xcx-weather1-nin8f.7863-xcx-weather1-nin8f/weaImg/" + this.data.weatherDatas[this.data.multiIndex[1]].wea_img + ".png",
-        days: [this.data.weatherDatas[0].day.slice(-3, -1), this.data.weatherDatas[1].day.slice(0, 3), this.data.weatherDatas[2].day.slice(0, 3)],
+        days: [this.data.weatherDatas[0].day.slice(-3, -1), this.data.weatherDatas[1].day.slice(0, -4), this.data.weatherDatas[2].day.slice(0, -4)],
         temDiffer: this.data.temDiffer
       })
     } else {
@@ -208,7 +208,7 @@ Page({
         wea: this.data.weatherDatas[this.data.multiIndex[1]].wea,
         weaImg: "../../images/weaIcon/" + this.data.weatherDatas[this.data.multiIndex[1]].wea_img + ".png",
         // weaImg: "cloud://xcx-weather1-nin8f.7863-xcx-weather1-nin8f/weaImg/" + this.data.weatherDatas[this.data.multiIndex[1]].wea_img + ".png",
-        days: [this.data.weatherDatas[0].day.slice(-3, -1), this.data.weatherDatas[1].day.slice(0, 3), this.data.weatherDatas[2].day.slice(0, 3)],
+        days: [this.data.weatherDatas[0].day.slice(-3, -1), this.data.weatherDatas[1].day.slice(0, -4), this.data.weatherDatas[2].day.slice(0, -4)],
         temDiffer: this.data.temDiffer
       });
     }

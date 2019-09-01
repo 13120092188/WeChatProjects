@@ -80,7 +80,7 @@
 
     <view class="view0-2">
       <view class="toolbar" bindtouchmove="showToolBar">
-        <navigator url="../addCity/addCity" open-type="navigate">
+        <navigator url="../myCitys/myCitys" open-type="navigate">
           <image class="icon-toolbar" src="../../images/toolbar.png"></image>
         </navigator>
       </view>
